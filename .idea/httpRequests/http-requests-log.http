@@ -1,0 +1,111 @@
+POST http://localhost:5000/print/photo/pdf/300/300?file=/Users/valentinbrosseau/Documents/obama2.jpeg
+Accept: */*
+Cache-Control: no-cache
+
+--null
+Content-Disposition: form-data; name="file"; filename="data.json"
+
+--null--
+
+<> 2018-10-26T101221.200.html
+
+###
+
+POST http://localhost:5000/print/photo/pdf/300/300
+Accept: */*
+Cache-Control: no-cache
+
+--null
+
+
+< /Users/valentinbrosseau/Documents/obama2.jpeg
+--null--
+
+###
+
+POST http://localhost:5000/print/photo/pdf/300/300
+Accept: */*
+Cache-Control: no-cache
+
+--null
+
+
+< /Users/valentinbrosseau/Documents/obama2.jpeg
+--null--
+
+<> 2018-10-26T100557.200.html
+
+###
+
+POST http://localhost:5000/print/photo/pdf/300/300
+Accept: */*
+Cache-Control: no-cache
+
+--null
+
+
+< /Users/valentinbrosseau/Documents/obama2.jpeg
+--null--
+
+###
+
+POST http://localhost:5000/print/photo/pdf/300/300
+Accept: */*
+Cache-Control: no-cache
+
+--null
+
+
+< /Users/valentinbrosseau/Documents/obama2.jpeg
+--null--
+
+<> 2018-10-26T100552.200.html
+
+###
+
+POST http://localhost:5000/print/photo/pdf/300/300
+Accept: */*
+Cache-Control: no-cache
+
+--null
+
+
+< /Users/valentinbrosseau/Documents/obama2.jpeg
+--null--
+
+<> 2018-10-26T100447.200.html
+
+###
+
+POST http://localhost:5000/print/photo/pdf/300/300
+Accept: */*
+Cache-Control: no-cache
+
+<> 2018-10-26T100336.200.html
+
+###
+
+POST http://localhost:5000/print/photo/pdf/300/300
+Accept: */*
+Cache-Control: no-cache
+
+<> 2018-10-26T100218.500.html
+
+###
+
+POST http://localhost:5000/print/photo/pdf/300/300
+Accept: */*
+Cache-Control: no-cache
+
+<> 2018-10-26T100121.400.html
+
+###
+
+POST http://localhost:5000/print/photo/pdf/300/300
+Accept: */*
+Cache-Control: no-cache
+
+<> 2018-10-26T100106.404.html
+
+###
+
