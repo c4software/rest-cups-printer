@@ -14,5 +14,5 @@ def print_photo(printer, height, width):
         f = request.files['file']
         return print_image(printer, f.stream, int(height), int(width))
     else:
-        return "{error: 'Please provide a valid jpeg file (multipart/form-data).'}"
+        return "{'error': 'Please provide a valid jpeg file (multipart/form-data).'}"
 
