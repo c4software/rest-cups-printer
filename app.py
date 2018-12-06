@@ -7,6 +7,7 @@ from helper.printer import print_image
 logging.basicConfig(level=logging.INFO)
 app = Flask(__name__)
 
+
 @app.route('/print/photo/<printer>/<height>/<width>', methods=["POST"])
 def print_photo(printer, height, width):
     print(request.files)
