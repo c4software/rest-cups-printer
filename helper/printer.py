@@ -14,8 +14,9 @@ def get_printer_status(printer_name):
     printers = conn.getPrinters()
     set_printer_user()
     if printer_name in printers:
-        printer = printers[printer_name]
-        print (printer)
+        printer = printers[printer_name].copy()
+        printer["status"] = 0
+        return printer
     else:
         return {"status": 1, "reason": "Printer '{}' not found".format(printer_name)}
 
