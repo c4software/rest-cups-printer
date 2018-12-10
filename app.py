@@ -1,6 +1,7 @@
 import logging
 from flask import Flask, jsonify
 from flask import request
+from waitress import serve
 
 from helper.printer import print_image, get_printer_status
 
@@ -20,3 +21,7 @@ def print_photo(printer, height, width):
 @app.route("/status/<printer>")
 def status(printer):
     return jsonify(get_printer_status(printer))
+
+
+if __name__ == "__main__":
+    serve(app, listen='*:8888')

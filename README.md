@@ -5,6 +5,15 @@
 FLASK_ENV=development flask run
 ```
 
+## Installation Systemd
+
+```bash
+sudo cp rest-cups-print.service /lib/systemd/system/
+sudo systemctl daemon-reload
+sudo systemctl enable rest-cups-print
+sudo systemctl start rest-cups-print
+```
+
 ## Test
 
 ```bash

@@ -1,0 +1,12 @@
+[Unit]
+Description=Rest Cups Api Service
+After=syslog.target network.target
+
+[Service]
+User=root
+WorkingDirectory=/todo/path
+ExecStart="./start.sh"
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
