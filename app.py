@@ -10,7 +10,7 @@ app = Flask(__name__)
 
 
 @app.route('/print/photo/<printer>/<height>/<width>', methods=["POST"])
-@app.route("/print/photo/<printer>/<height>/<width>/<media_size>")
+@app.route("/print/photo/<printer>/<height>/<width>/<media_size>", methods=["POST"])
 def print_photo(printer, height, width, media_size=None):
     if 'file' in request.files:
         f = request.files['file']
