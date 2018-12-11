@@ -23,7 +23,7 @@ def get_printer_status(printer_name):
         return {"status": 1, "reason": "Printer '{}' not found".format(printer_name)}
 
 
-def print_image(printer_name, file_stream, height=600, width=900):
+def print_image(printer_name, file_stream, height=600, width=900, media_size=None):
     conn = cups.Connection()
     printers = conn.getPrinters()
     set_printer_user()
@@ -33,6 +33,11 @@ def print_image(printer_name, file_stream, height=600, width=900):
 
         output = mktemp(prefix='jpg')
         im.save(output, format='jpeg')
+
+        job_parameters = {}
+        if media_size:
+            # MediaSize DNP => *w288h432 (10x15) w432h576 (20x15)
+            job_parameters["media"] = media_size
 
         job_id = conn.printFile(printer_name, output, "HappyBorne Job", {})
         thread = threading.Thread(target=wait_for_cleanup_job, args=(job_id, output))
