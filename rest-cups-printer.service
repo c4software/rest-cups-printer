@@ -4,8 +4,8 @@ After=syslog.target network.target
 
 [Service]
 User=root
-WorkingDirectory=/todo/path
-ExecStart="./start.sh"
+WorkingDirectory=/usr/share/printer-api/
+ExecStart="/usr/share/printer-api/start.sh"
 Restart=always
 
 [Install]
