@@ -39,7 +39,7 @@ def print_image(printer_name, file_stream, height=600, width=900, media_size=Non
             # MediaSize DNP => *w288h432 (10x15) w432h576 (20x15)
             job_parameters["media"] = media_size
 
-        job_id = conn.printFile(printer_name, output, "HappyBorne Job", {})
+        job_id = conn.printFile(printer_name, output, "HappyBorne Job", job_parameters)
         thread = threading.Thread(target=wait_for_cleanup_job, args=(job_id, output))
         thread.daemon = True
         thread.start()
