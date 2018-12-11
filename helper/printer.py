@@ -1,4 +1,6 @@
 import cups
+import threading
+
 from PIL import Image
 from tempfile import mktemp
 from time import sleep
@@ -32,11 +34,19 @@ def print_image(printer_name, file_stream, height=600, width=900):
         output = mktemp(prefix='jpg')
         im.save(output, format='jpeg')
 
-        print_id = conn.printFile(printer_name, output, "HappyBorne Job", {})
-        while conn.getJobs().get(print_id, None):
-            sleep(1)
+        job_id = conn.printFile(printer_name, output, "HappyBorne Job", {})
+        thread = threading.Thread(target=wait_for_cleanup_job, args=(job_id, output))
+        thread.daemon = True
+        thread.start()
 
-        unlink(output)
         return {"status": 0}
     else:
         return {"status": 1, "reason": "Printer '{}' not found".format(printer_name)}
+
+
+def wait_for_cleanup_job(job_id, output):
+    conn = cups.Connection()
+    while conn.getJobs().get(job_id, None):
+        sleep(1)
+
+    unlink(output)
