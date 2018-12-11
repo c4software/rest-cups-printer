@@ -14,6 +14,13 @@ sudo systemctl enable rest-cups-print
 sudo systemctl start rest-cups-print
 ```
 
+## Format DNP
+
+MediaSize (Can be specified in URL during print)
+
+- w288h432 (10x15) 
+- w432h576 (20x15)
+
 ## Test
 
 ```bash
