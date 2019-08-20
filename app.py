@@ -25,4 +25,4 @@ def status(printer):
 
 
 if __name__ == "__main__":
-    serve(app, listen='*:8888')
+    serve(app, listen='*:8888', threaded=True)
