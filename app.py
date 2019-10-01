@@ -25,7 +25,7 @@ def status(printer):
 
 
 @app.route("/clear/<printer>")
-def status(printer):
+def cancel(printer):
     return jsonify(cancel_all_jobs(printer))
 
 
