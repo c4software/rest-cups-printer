@@ -3,7 +3,7 @@ from flask import Flask, jsonify
 from flask import request
 from waitress import serve
 
-from helper.printer import print_image, get_printer_status
+from helper.printer import print_image, get_printer_status, cancel_all_jobs
 
 logging.basicConfig(level=logging.INFO)
 app = Flask(__name__)
@@ -22,6 +22,11 @@ def print_photo(printer, height, width, media_size=None):
 @app.route("/status/<printer>")
 def status(printer):
     return jsonify(get_printer_status(printer))
+
+
+@app.route("/clear/<printer>")
+def status(printer):
+    return jsonify(cancel_all_jobs(printer))
 
 
 if __name__ == "__main__":

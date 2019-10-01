@@ -47,9 +47,17 @@ def print_image(printer_name, file_stream, height=600, width=900, media_size=Non
         return {"status": 1, "reason": "Printer '{}' not found".format(printer_name)}
 
 
-def wait_for_cleanup_job(job_id, output):
+def cancel_all_jobs(printer_name):
     conn = cups.Connection()
-    while conn.getJobs().get(job_id, None):
-        sleep(1)
+    printers = conn.getPrinters()
+    set_printer_user()
 
+    if printer_name in printers:
+        conn.cancelAllJobs()
+        return {"status": 0}
+    else:
+        return {"status": 1, "reason": "Printer '{}' not found".format(printer_name)}
+
+
+def wait_for_cleanup_job(job_id, output):
     unlink(output)
