@@ -54,6 +54,7 @@ def cancel_all_jobs(printer_name):
 
     if printer_name in printers:
         conn.cancelAllJobs(printer_name)
+        conn.enablePrinter(printer_name)
         return {"status": 0}
     else:
         return {"status": 1, "reason": "Printer '{}' not found".format(printer_name)}
