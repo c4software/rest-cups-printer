@@ -17,7 +17,8 @@ def get_printer_status(printer_name):
     set_printer_user()
     if printer_name in printers:
         printer = printers[printer_name].copy()
-        if "printer not ready" in printer["printer-state-message"].lower():
+        printer_state_message = printer["printer-state-message"].lower()
+        if "printer not ready" in printer_state_message or "unknown media" in printer_state_message:
             printer["status"] = 1
             printer["reason"] = "Printer problem : {}".format(printer["printer-state-message"])
         else:
