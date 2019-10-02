@@ -17,7 +17,11 @@ def get_printer_status(printer_name):
     set_printer_user()
     if printer_name in printers:
         printer = printers[printer_name].copy()
-        printer["status"] = 0
+        if "printer-state-message" in printer["printer-state-message"] and printer["printer-state-message"] is not "":
+            printer["status"] = 0
+        else:
+            printer["status"] = 1
+            printer["reason"] = "Printer has an extra error {}".format(printer["printer-state-message"])
         return printer
     else:
         return {"status": 1, "reason": "Printer '{}' not found".format(printer_name)}
