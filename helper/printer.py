@@ -17,7 +17,7 @@ def get_printer_status(printer_name):
     set_printer_user()
     if printer_name in printers:
         printer = printers[printer_name].copy()
-        if "printer-state-message" in printer["printer-state-message"] and printer["printer-state-message"] is "":
+        if "printer-state-message" in printer["printer-state-message"] and printer["printer-state-message"] == "":
             printer["status"] = 0
         else:
             printer["status"] = 1
