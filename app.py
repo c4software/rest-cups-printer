@@ -33,8 +33,8 @@ def cancel(printer):
 
 @app.route("/reboot/now")
 def reboot():
-    os.system("reboot")
-    return jsonify({"status": 0})
+    os.system("sudo reboot")
+    return jsonify({"status": 1})
 
 
 if __name__ == "__main__":
