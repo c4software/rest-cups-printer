@@ -1,4 +1,6 @@
 import logging
+import os
+
 from flask import Flask, jsonify
 from flask import request
 from waitress import serve
@@ -27,6 +29,11 @@ def status(printer):
 @app.route("/clear/<printer>")
 def cancel(printer):
     return jsonify(cancel_all_jobs(printer))
+
+
+@app.route("/reboot/now")
+def reboot():
+    return os.system('shutdown -r now')
 
 
 if __name__ == "__main__":
