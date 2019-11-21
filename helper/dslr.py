@@ -6,6 +6,10 @@ def take_shot():
     subprocess.check_output("gphoto2 --force-overwrite --quiet --capture-image-and-download --filename /tmp/photobooth.jpg", shell=True)
     return send_file("/tmp/photobooth.jpg")
 
+def take_capture():
+    subprocess.check_output("gphoto2 --force-overwrite --quiet --trigger-capture --filename /tmp/photobooth.jpg", shell=True)
+    return send_file("/tmp/photobooth.jpg")
+
 def get_summary():
     try:
         return subprocess.check_output("gphoto2 --summary", shell=True)
