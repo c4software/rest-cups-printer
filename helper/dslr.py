@@ -4,7 +4,8 @@ from flask import send_file
 
 def take_shot():
     try:
-        return subprocess.check_output("gphoto2 --force-overwrite --quiet --capture-image-and-download --filename /tmp/photobooth.jpg --stdout", shell=True)
+        subprocess.check_output("gphoto2 --force-overwrite --quiet --capture-image-and-download --filename /tmp/photobooth.jpg", shell=True)
+        return send_file("/tmp/photobooth.jpg")
     except:
         return ""
 
