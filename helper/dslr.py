@@ -10,6 +10,9 @@ def take_capture():
     subprocess.check_output("gphoto2 --force-overwrite --quiet --trigger-capture --filename /tmp/photobooth.jpg", shell=True)
     return send_file("/tmp/photobooth.jpg")
 
+def quick_shot():
+    return subprocess.check_output("gphoto2 --capture-movie --frames=0 --stdout", shell=True)
+
 def get_summary():
     data = subprocess.check_output("gphoto2 --summary", shell=True)
     if not data:

@@ -1,12 +1,11 @@
 import logging
 import os
 
-from flask import Flask, jsonify
-from flask import request
+from flask import Flask, jsonify, request, Response
 from waitress import serve
 
 from helper.printer import print_image, get_printer_status, cancel_all_jobs
-from helper.dslr import take_shot, get_summary, take_capture
+from helper.dslr import take_shot, get_summary, take_capture, quick_shot
 
 logging.basicConfig(level=logging.INFO)
 app = Flask(__name__)
@@ -42,6 +41,10 @@ def dslr_capture():
 @app.route("/dslr/summary")
 def dslr_summary():
     return jsonify(get_summary())
+
+@app.route("/dslr/preview")
+def dslr_preview():
+    return Response(quick_shot(), mimetype='image/jpeg')
 
 @app.route("/reboot/now")
 def reboot():
