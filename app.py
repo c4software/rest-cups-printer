@@ -6,7 +6,7 @@ from flask import request
 from waitress import serve
 
 from helper.printer import print_image, get_printer_status, cancel_all_jobs
-from helper.dslr import take_shot
+from helper.dslr import take_shot, get_summary
 
 logging.basicConfig(level=logging.INFO)
 app = Flask(__name__)
@@ -34,6 +34,10 @@ def cancel(printer):
 @app.route("/dslr/shot")
 def dslr_shot():
     return take_shot()
+
+@app.route("/dslr/summary")
+def dslr_summary():
+    return get_summary()
 
 
 @app.route("/reboot/now")
