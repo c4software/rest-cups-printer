@@ -32,7 +32,7 @@ def cancel(printer):
     return jsonify(cancel_all_jobs(printer))
 
 @app.route("/dslr/shot")
-def dslr_shot(printer):
+def dslr_shot():
     return take_shot()
 
 
