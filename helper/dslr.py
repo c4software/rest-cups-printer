@@ -12,6 +12,10 @@ def take_capture():
 
 def get_summary():
     try:
-        return subprocess.check_output("gphoto2 --summary", shell=True)
+        data = subprocess.check_output("gphoto2 --summary", shell=True)
+        if not data:
+            raise Exception('No device found')
+        else:
+            return data
     except:
         return ""
