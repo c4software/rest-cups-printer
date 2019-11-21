@@ -37,7 +37,7 @@ def dslr_shot():
 
 @app.route("/dslr/summary")
 def dslr_summary():
-    return get_summary()
+    return jsonify(get_summary())
 
 
 @app.route("/reboot/now")
