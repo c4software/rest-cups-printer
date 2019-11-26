@@ -33,8 +33,8 @@ def crop_image(image):
 
     aspect = width / float(height)
 
-    ideal_width = 1280
-    ideal_height = 960
+    ideal_width = 2560
+    ideal_height = 1920
 
     ideal_aspect = ideal_width / float(ideal_height)
 
