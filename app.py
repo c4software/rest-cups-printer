@@ -40,7 +40,7 @@ def dslr_capture():
 
 @app.route("/dslr/summary")
 def dslr_summary():
-    return Response(get_summary(), mimetype='image/jpeg')
+    return get_summary()
 
 @app.route("/dslr/preview")
 def dslr_preview():
