@@ -26,6 +26,11 @@ def crop_image(image):
     width  = image.size[0]
     height = image.size[1]
 
+    if 'exif' in image.info:
+        exif = image.info['exif']
+    else:
+        exif = None
+
     aspect = width / float(height)
 
     ideal_width = 1280
@@ -46,6 +51,6 @@ def crop_image(image):
 
     resized = image.crop(resize).resize((ideal_width, ideal_height), Image.ANTIALIAS)
     output = io.BytesIO()
-    resized.save(output)
+    resized.save(output, 'JPEG', quality=100, exif=exif)
     output.seek(0)
     return output
