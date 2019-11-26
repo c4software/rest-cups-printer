@@ -36,11 +36,11 @@ def dslr_shot():
 
 @app.route("/dslr/capture")
 def dslr_capture():
-    return take_capture()
+    return Response(take_capture(), mimetype='image/jpeg')
 
 @app.route("/dslr/summary")
 def dslr_summary():
-    return jsonify(get_summary())
+    return Response(get_summary(), mimetype='image/jpeg')
 
 @app.route("/dslr/preview")
 def dslr_preview():
