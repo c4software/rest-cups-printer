@@ -21,8 +21,8 @@ def get_summary():
     else:
         return data
 
-def crop_image(source):
-    image  = Image.open(source)
+def crop_image(image):
+    image  = Image.open(io.BytesIO(image))
     width  = image.size[0]
     height = image.size[1]
 
