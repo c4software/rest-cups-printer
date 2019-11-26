@@ -53,4 +53,4 @@ def crop_image(image):
     output = io.BytesIO()
     resized.save(output, 'JPEG', quality=100, exif=exif)
     output.seek(0)
-    return output
+    return send_file(output, mimetype="image/jpeg")
