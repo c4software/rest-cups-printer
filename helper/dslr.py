@@ -1,5 +1,5 @@
 import subprocess
-import Image
+from PIL import Image
 import io
 from flask import send_file
 
