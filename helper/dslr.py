@@ -21,8 +21,8 @@ def get_summary():
     else:
         return data
 
-def crop_image(image):
-    image  = Image.open(io.BytesIO(image))
+def crop_image(source):
+    image  = Image.open(source)
     width  = image.size[0]
     height = image.size[1]
 
@@ -44,8 +44,8 @@ def crop_image(image):
         offset = (height - new_height) / 2
         resize = (0, offset, width, height - offset)
 
-    output = io.BytesIO()
     resized = image.crop(resize).resize((ideal_width, ideal_height), Image.ANTIALIAS)
+    output = io.BytesIO()
     resized.save(output)
     output.seek(0)
     return output
