@@ -40,7 +40,11 @@ def dslr_capture():
 
 @app.route("/dslr/summary")
 def dslr_summary():
-    return get_summary()
+    data = get_summary()
+    if data:
+        return data
+    else:
+        return Response(status=404)
 
 @app.route("/dslr/preview")
 def dslr_preview():
