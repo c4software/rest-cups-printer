@@ -34,7 +34,7 @@ def print_image(printer_name, file_stream, height=600, width=900, media_size=Non
     set_printer_user()
 
     if printer_name in printers:
-        im = Image.open(file_stream).resize((height, width))
+        im = Image.open(file_stream).resize((height, width), Image.ANTIALIAS)
 
         output = mktemp(prefix='jpg')
         im.save(output, format='jpeg', quality=100)
