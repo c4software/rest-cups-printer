@@ -37,7 +37,7 @@ def print_image(printer_name, file_stream, height=600, width=900, media_size=Non
         im = Image.open(file_stream).resize((height, width))
 
         output = mktemp(prefix='jpg')
-        im.save(output, format='jpeg')
+        im.save(output, format='jpeg', quality=100)
 
         job_parameters = {}
         if media_size:
