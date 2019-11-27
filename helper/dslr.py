@@ -16,7 +16,7 @@ def quick_shot():
 
 def get_summary():
     try:
-        data = subprocess.check_output("gphoto2 --summary", shell=True)
+        data = subprocess.check_output("gphoto2 --summary 2> /dev/null", shell=True)
         if not data:
             return None
         else:
