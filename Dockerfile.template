@@ -1,0 +1,16 @@
+FROM balenalib/%%BALENA_MACHINE_NAME%%-python:2.7.16
+WORKDIR /usr/src/app
+EXPOSE 8888 631
+ENV UDEV=1
+
+# Install dependances
+COPY requirements.txt ./
+RUN pip install --no-cache-dir -r requirements.txt
+RUN install_packages gphoto2 cups printer-driver-gutenprint
+
+# Copy de la conf udev permettant l'ajout d'imprimante
+COPY usb-printer.rules /etc/udev/rules.d/
+
+# Copy du script d'impression & 
+COPY . .
+CMD [ "python2", "./app.py" ]

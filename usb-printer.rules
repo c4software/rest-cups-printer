@@ -1,0 +1,1 @@
+ACTION=="add", SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ENV{ID_VENDOR_ID}=="1452", ENV{ID_MODEL_ID}=="8b01", RUN+="/usr/sbin/lpadmin -p HappyBorne -v 'gutenprint52+usb://Dai+Nippon+Printing/DP-DS620?serial=$env{ID_SERIAL_SHORT}&backend=dnpds40'"
